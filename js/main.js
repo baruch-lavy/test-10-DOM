@@ -7,14 +7,15 @@ const playerBScore = document.querySelector(".player-b-score");
 const userInput = document.querySelector(".user-input");
 const moveOn = document.querySelector(".move-on");
 const errorMsg = document.querySelector(".error-msg");
-const header = document.querySelector('.header')
-const winMsg = document.querySelector('.win-msg')
+const header = document.querySelector(".header");
+const winMsg = document.querySelector(".win-msg");
 
 const state = {
-  targetScore: 50,
+  targetScore: 10,
   playerA: { score: 0, name: "baruch" },
   playerB: { score: 0, name: "computer" },
   currentPlayer: null,
+  isGameEnded: false,
 };
 
 function init() {
@@ -61,10 +62,10 @@ function handleResults() {
   if (results[0] === results[1]) {
     if (name === "baruch") {
       state.playerA.score = 0;
-      swichPlayers()
+      swichPlayers();
     } else {
       state.playerB.score = 0;
-      swichPlayers()
+      swichPlayers();
     }
   } else {
     const sum = results[0] + results[1];
@@ -75,42 +76,52 @@ function handleResults() {
     }
   }
   setTimeout(() => {
-    checkWinner()
+    checkWinner();
     askPlayer();
     printResults();
   }, 1100);
 }
 
 function checkWinner() {
-    if (state.playerA.score >= state.targetScore) {
-        winMsg.innerText = `the winner is ${state.playerA.name}`
-        header.classList.remove('hidden')
-    } else if (state.playerB.score >= state.targetScore) {
-        winMsg.innerText = `the winner is: ${state.playerB.name}`
-        header.classList.remove('hidden')
-    }
+  if (state.playerA.score >= state.targetScore) {
+    winMsg.innerText = `the winner is ${state.playerA.name}`;
+    header.classList.remove("hidden");
+    endGame();
+  } else if (state.playerB.score >= state.targetScore) {
+    winMsg.innerText = `the winner is: ${state.playerB.name}`;
+    header.classList.remove("hidden");
+    endGame();
+  }
+}
+
+function endGame() {
+  rollButton.classList.add("hidden");
+  userInput.classList.add("hidden");
+  state.isGameEnded = true
 }
 
 function askPlayer() {
-  const goodAnswers = ["pass", "roll again", '',];
-  userInput.classList.remove("hidden");
-  moveOn.classList.remove("hidden");
-  moveOn.addEventListener("click", () => {
-    const answer = userInput.value;
-    if (!goodAnswers.includes(answer.toLowerCase())) {
-      errorMsg.classList.remove("hidden");
-    } else {
-      if (answer === goodAnswers[0]) {
-        swichPlayers();
-      } else if (answer === goodAnswers[1]) {
-        rollButton.click()
+  if (!state.isGameEnded) {
+    const goodAnswers = ["pass", "roll again", ""];
+    userInput.classList.remove("hidden");
+    moveOn.classList.remove("hidden");
+    moveOn.addEventListener("click", () => {
+      const answer = userInput.value;
+      if (!goodAnswers.includes(answer.toLowerCase())) {
+        errorMsg.classList.remove("hidden");
+      } else {
+        if (answer === goodAnswers[0]) {
+          swichPlayers();
+        } else if (answer === goodAnswers[1]) {
+          rollButton.click();
+        }
+        errorMsg.classList.add("hidden");
+        userInput.classList.add("hidden");
+        userInput.value = "";
+        moveOn.classList.add("hidden");
       }
-      errorMsg.classList.add("hidden");
-      userInput.classList.add("hidden");
-      userInput.value = "";
-      moveOn.classList.add("hidden");
-    }
-  });
+    });
+  }
 }
 
 function swichPlayers() {
@@ -137,7 +148,7 @@ function randomResoltes() {
   const num1 = nums[rundIdx1];
   const num2 = nums[rundIdx2];
   const results = [num1, num2];
-  return results;
+  return results
 }
 
 function getRandomIntInclusive(min, max) {
