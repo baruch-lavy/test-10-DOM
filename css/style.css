@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-container {
+  width: 1000px;
+  height: 100vh;
+  margin: 0 auto;
+  background: rgb(255, 254, 254);
+  border-radius: 16px;
+  border: 1px solid lightgoldenrodyellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 3px 3px rgba(11, 19, 27, 0.2);
+}
+
+.score-and-turns {
+  height: 10vh;
+  min-width: 100%;
+  border-bottom: 1px solid rgb(201, 195, 195);
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.turn,
+.scores {
+  border: 2px solid rgb(32, 124, 178);
+  border-radius: 1rem;
+  padding: 1rem;
+  height: 4rem;
+  color:blue;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.turn {
+    align-self: flex-end;
+}
+
+.scores::before {
+  content: "Scores: ";
+  text-decoration: underline;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: blue;
+}
+
+.scores {
+    align-self: flex-end;
+    text-transform: uppercase;
+    height: 10rem;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    color: blue;
+    font-weight: 500;
+    gap: 1rem;
+}
+
+.cubes {
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 100%;
+  border-bottom: 1px solid rgb(204, 202, 202);
+}
+
+.cube {
+  border: 2px solis white;
+}
+
+.cube.rotate {
+      animation: rotate 0.1s 10 linear;
+}
+
+img {
+  width: 8rem;
+  height: 8rem;
+}
+
+.game-btns {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+}
+
+.button {
+  padding: 1.5rem;
+  background: blue;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.user-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.user-input {
+    padding: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+}
+
+.move-on {
+    border: 3px solid rgb(110, 202, 245);
+}
+
+.error-msg {
+    color: red;
+    font-weight: 600;
+    border: 2px solid red;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+
+@keyframes rotate {
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(135deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}

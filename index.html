@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cubes-roll</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+    <main class="game-container">
+        <section class="score-and-turns">
+            <div class="turn"></div>
+            <div class="scores">
+                <div class="player-a-score">0</div>
+                <div class="player-b-score">0</div>
+            </div>
+        </section>
+        <section class="cubes">
+            <div class="cube cube-1">
+                <img src="./dice-cube.png" alt="">
+            </div>
+            <div class="cube cube-2">
+                <img src="./dice-cube.png" alt="">
+            </div>
+        </section>
+        <section class="game-btns">
+            <button class="button roll">Roll</button>
+        </section>
+        <section class="user-input-container">
+            <div class="error-msg hidden">Wrong Choose</div>
+            <input type="text" class="user-input hidden" placeholder="Enter your choose(pass or roll again)">
+            <button class="button move-on hidden">Move On</button>
+        </section>
+    </main>
+</body>
+
+</html>
