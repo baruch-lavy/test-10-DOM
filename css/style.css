@@ -63,7 +63,7 @@ header {
 }
 
 .turn {
-    align-self: flex-end;
+    align-self: center;
 }
 
 .scores::before {
