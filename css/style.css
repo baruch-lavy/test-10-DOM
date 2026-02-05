@@ -10,6 +10,19 @@
     display: none;
 }
 
+header {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        color: blue;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        text-align: center;
+    }
+}
+
 .game-container {
   width: 1000px;
   height: 100vh;

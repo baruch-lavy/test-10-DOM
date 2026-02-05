@@ -7,6 +7,8 @@ const playerBScore = document.querySelector(".player-b-score");
 const userInput = document.querySelector(".user-input");
 const moveOn = document.querySelector(".move-on");
 const errorMsg = document.querySelector(".error-msg");
+const header = document.querySelector('.header')
+const winMsg = document.querySelector('.win-msg')
 
 const state = {
   targetScore: 50,
@@ -59,8 +61,10 @@ function handleResults() {
   if (results[0] === results[1]) {
     if (name === "baruch") {
       state.playerA.score = 0;
+      swichPlayers()
     } else {
       state.playerB.score = 0;
+      swichPlayers()
     }
   } else {
     const sum = results[0] + results[1];
@@ -71,9 +75,20 @@ function handleResults() {
     }
   }
   setTimeout(() => {
+    checkWinner()
     askPlayer();
     printResults();
   }, 1100);
+}
+
+function checkWinner() {
+    if (state.playerA.score >= state.targetScore) {
+        winMsg.innerText = `the winner is ${state.playerA.name}`
+        header.classList.remove('hidden')
+    } else if (state.playerB.score >= state.targetScore) {
+        winMsg.innerText = `the winner is: ${state.playerB.name}`
+        header.classList.remove('hidden')
+    }
 }
 
 function askPlayer() {
