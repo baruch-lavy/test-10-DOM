@@ -37,6 +37,13 @@ header {
   box-shadow: 3px 3px 3px 3px rgba(11, 19, 27, 0.2);
 }
 
+.game-header {
+    color: blue;
+    align-self: center;
+    margin-bottom: 10rem;
+    text-decoration: underline;
+}
+
 .score-and-turns {
   height: 10vh;
   min-width: 100%;
