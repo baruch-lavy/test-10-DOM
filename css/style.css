@@ -40,7 +40,7 @@ header {
 .game-header {
     color: blue;
     align-self: center;
-    margin-bottom: 10rem;
+    margin-bottom: 9rem;
     text-decoration: underline;
 }
 
@@ -117,7 +117,7 @@ img {
 }
 
 .game-btns {
-  height: 20vh;
+  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
